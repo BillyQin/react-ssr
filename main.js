@@ -1,26 +1,29 @@
-if (typeof window === 'undefined') {
-  global.window = {}
-}
-
 const Koa = require('koa');
 const Router = require('koa-router');
 const fs = require('fs');
-const appServer = require('./dist/app-server.js')
-// const ReactDOMServer = require('react-dom/server');
+const path = require('path');
+const static = require('koa-static');
+const appServer = require('./server/app-server.js')
+const ReactDOMServer = require('react-dom/server');
+
+const htmlFile = path.join(__dirname, './dist/index.html')
+const staticFolder = path.join(__dirname, './dist')
 
 const port = process.env.PORT || 3000;
 
 function server (port) {
   const app = new Koa()
   const router = new Router()
-  const html = fs.readFileSync('./index-server.html', {encoding: 'utf-8'})
-  // const component = ReactDOMServer.renderToString(appServer)
+  let html = fs.readFileSync(htmlFile, {encoding: 'utf-8'})
+
+  router.get('*', ctx => {
+    let component = appServer.default(ctx.url, ctx)
+    // console.log(ctx.url, ReactDOMServer.renderToString(component))
+    ctx.body = html.replace('<!-- HTML_PLACEHOLDER -->', ReactDOMServer.renderToString(component))
+  })
 
   app.use(router.routes())
-  console.log(appServer)
-  router.get('/', ctx => {
-    ctx.body = html.replace('${content}', appServer.default)
-  })
+  app.use(static(staticFolder))
 
   app.listen(port, () => {
     console.log(`Server is running on localhost:${port}`)

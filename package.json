@@ -8,7 +8,8 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -19,13 +20,18 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-view": "^2.1.3",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
   },
   "scripts": {
     "ssr": "webpack --config webpack.ssr.js",
-    "prod": "webpack --config webpack.prod.js"
+    "prod": "webpack --config webpack.prod.js",
+    "start": "yarn ssr && yarn prod && node main.js"
   }
 }

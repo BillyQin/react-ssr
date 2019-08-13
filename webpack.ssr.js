@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     filename: '[name]-server.js',
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './server'),
     libraryTarget: 'umd'
   },
   module: {
@@ -32,18 +32,18 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.(css|less)$/,
-      //   use: [
-      //     'css-loader',
-      //     {
-      //       loader: 'less-loader',
-      //       options: {
-      //         javascriptEnabled: true
-      //       }
-      //     }
-      //   ]
-      // },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
       // {
       //   test: /\.(png|svg|jpg|jpeg|gif)$/,
       //   include: path.resolve(__dirname, "./src"),
@@ -60,8 +60,8 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       '@': path.resolve(__dirname, './src'),
-    },
-    modules: [path.resolve(__dirname, './node_modules')]
+    }
+    // modules: [path.resolve(__dirname, './node_modules')]
   },
   plugins: [
     new CleanWebpackPlugin({

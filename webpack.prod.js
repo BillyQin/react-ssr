@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
@@ -36,6 +37,7 @@ module.exports = {
       {
         test: /\.(css|less)$/,
         use: [
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'less-loader',
@@ -73,17 +75,14 @@ module.exports = {
       filename: 'index.html',
       template: 'index.html',
       // favicon: 'favicon.ico',
-      inject: true,
-      minify: {
-        html5: true
-      }
+      inject: true
     }),
-    // new BundleAnalyzerPlugin(),
-    // new FriendlyErrorsWebpackPlugin(),
-    // new webpack.DllReferencePlugin({
-    //   manifest: require('../dist/library/library.json')
-    // })
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].[chunkhash].css',
+      chunkFilename: '[id].css',
+    })
   ],
-  stats: 'none',
   mode: 'production'
 };

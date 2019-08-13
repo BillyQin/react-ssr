@@ -1,8 +1,9 @@
 import React from 'react';
+import './index.less';
 
 function Header() {
   return (
-    <div>
+    <div className="header">
       <div>This is Header</div>
     </div>
   )

@@ -1,16 +1,13 @@
 import React from 'react';
-import Header from './header';
+import { Switch, Route } from 'react-router-dom';
+import Home from '@/pages/home';
+import About from '@/pages/about';
 
-function App() {
-  const say = () => {
-    console.log('hello~')
-  }
-  return (
-    <div>
-      <Header />
-      <div onClick={say}>Hello, SSR</div>
-    </div>
-  )
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/about" component={About} />
+    <Route exact path="/" component={Home} />
+  </Switch>
+)
 
 export default App
