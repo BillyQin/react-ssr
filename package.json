@@ -27,11 +27,14 @@
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "ssr": "webpack --config webpack.ssr.js",
     "prod": "webpack --config webpack.prod.js",
-    "start": "yarn ssr && yarn prod && node main.js"
+    "build": "yarn ssr && yarn prod && node main.js",
+    "start": "webpack-dev-server --config webpack.dev.js"
   }
 }
