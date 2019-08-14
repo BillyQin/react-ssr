@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js',
     // publicPath: "/",
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './dist/static'),
     libraryTarget: 'umd'
   },
   module: {
@@ -72,7 +72,7 @@ module.exports = {
       beforeEmit: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: '../index.html',
       template: 'index.html',
       // favicon: 'favicon.ico',
       inject: true

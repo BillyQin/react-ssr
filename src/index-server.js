@@ -1,11 +1,18 @@
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
-import App from '@/pages/home';
+import ReactDOMServer from "react-dom/server";
+import { StaticRouter } from "react-router";
+import App from '@/app';
 
-const AppServer = (url='/', ctx) => (
-  <StaticRouter context={ctx} location={url}>
-    <App />
-  </StaticRouter>
-)
+const AppServer = (ctx) => {
+  const { url } = ctx
+  const context = {}
+
+  let html = ReactDOMServer.renderToString(
+    <StaticRouter location={url} context={context} >
+      <App />
+    </StaticRouter>
+  );
+  return html
+}
 
 export default AppServer
