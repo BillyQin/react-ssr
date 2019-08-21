@@ -6,7 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['./src/index-server.js']
+    app: ['./src/index-server.js'],
+    store: ['./src/store/server.js'],
+    route: ['./src/routes/index.js']
   },
   output: {
     filename: '[name]-server.js',
@@ -24,7 +26,8 @@ module.exports = {
             options: {
               plugins: [
                 'transform-decorators-legacy',
-                "syntax-dynamic-import"
+                "syntax-dynamic-import",
+                "transform-runtime"
               ],
               presets: ['es2015', 'stage-0', 'react'],
               cacheDirectory: true

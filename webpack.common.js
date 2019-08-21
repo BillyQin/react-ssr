@@ -17,7 +17,8 @@ module.exports = {
             options: {
               plugins: [
                 'transform-decorators-legacy',
-                "syntax-dynamic-import"
+                "syntax-dynamic-import",
+                "transform-runtime"
               ],
               presets: ['es2015', 'stage-0', 'react'],
               cacheDirectory: true
