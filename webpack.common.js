@@ -12,6 +12,13 @@ module.exports = {
         test: /\.js[x]?$/,
         include: path.resolve(__dirname, "./src"),
         use: [
+          {loader: 'ts-loader'}
+        ]
+      },
+      {
+        test: /\.js[x]?$/,
+        include: path.resolve(__dirname, "./src"),
+        use: [
           {
             loader: 'babel-loader',
             options: {
@@ -60,7 +67,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', 'tsx'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     }

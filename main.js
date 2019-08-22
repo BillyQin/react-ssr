@@ -10,6 +10,7 @@ const static = require('koa-static');
 const appServer = require('./server/app-server.js').default
 const jsondata = require('./mock/products.json')
 const cors = require('koa-cors')
+const http = require('http')
 const creatServerStore = require('./server/store-server.js').default
 
 const htmlFile = path.join(__dirname, './dist/index.html')
@@ -58,3 +59,26 @@ function server (port) {
 }
 
 server(port)
+
+let options = {
+  port: 3000,
+  host: 'localhost', // 请求地址 域名，google.com等..
+  path:`/api/products?name=zhihu`, // 具体路径eg:/upload
+  method: 'GET', // 请求方式, 这里以post为例
+  headers: { // 必选信息,  可以抓包工看一下
+    'Content-Type': 'application/json'
+  }
+};
+let req = http.get(options, (res) => {
+  res.setEncoding('utf8');
+  let rawData = '';
+  res.on('data', (chunk) => { rawData += chunk; });
+  res.on('end', () => {
+    try {
+      const parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.error(e.message);
+    }
+  });
+});

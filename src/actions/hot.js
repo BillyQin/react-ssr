@@ -7,6 +7,18 @@ function putHotLists (payload) {
   }
 }
 
+function fetchHotLists (payload) {
+  return (dispatch, getState) => {
+
+  }
+
+  // {
+  //   type: type.FETCH_HOT_LISTS,
+  //   payload
+  // }
+}
+
 export {
   putHotLists,
+  fetchHotLists
 }

@@ -10,7 +10,7 @@ module.exports = {
     app: ['./src/index.js']
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[contenthash:8].js',
     // publicPath: "/",
     path: path.resolve(__dirname, './dist/static'),
     libraryTarget: 'umd'
