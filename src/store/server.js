@@ -10,5 +10,6 @@ export default () => {
     applyMiddleware(sagaMiddleware)
   )
   sagaMiddleware.run(saga)
+  store.runSaga = sagaMiddleware.run
   return store
 }

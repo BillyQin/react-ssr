@@ -1,5 +1,5 @@
 import Config from '@/../config/config'
-
+import fetch from 'node-fetch';
 //method 大写GET,POST
 //params json
 export default function fetchRequest(url, method = 'POST', params = {}) {
@@ -24,9 +24,9 @@ export default function fetchRequest(url, method = 'POST', params = {}) {
     request["body"] = JSON.stringify(params) //body参数，通常需要转换成字符串后服务器才能解析
   }
 
-  const _fetch = fetch(reqUrl, request).then((response) => response.json())
+  const _fetch = fetch(reqUrl, request)
+    .then((response) => response.json())
     .then((responseData) => {
-      // console.log('res:', url, responseData);  //网络请求成功返回的数据
       return responseData
     })
     .catch((err) => {

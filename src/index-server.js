@@ -5,10 +5,9 @@ import App from '@/app';
 
 const AppServer = (ctx) => {
   const { url } = ctx
-  const context = {}
 
   let html = ReactDOMServer.renderToString(
-    <StaticRouter location={url} context={context} >
+    <StaticRouter location={url} context={ctx}>
       <App />
     </StaticRouter>
   );

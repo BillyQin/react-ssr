@@ -8,7 +8,7 @@ export default [
     component: Home,
     exact: true,
     key: 'home',
-    loadData: Home.loadData
+    preload: Home.preload
   },
   {
     path: '/about',

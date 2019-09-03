@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import InfoLists from '@/component/infoLists';
 import { connect } from 'react-redux';
+import { fetchHotLists } from '@/sagas/hot';
 
 function Home (props) {
   const labels = [
@@ -8,13 +9,13 @@ function Home (props) {
     {name: 'segmentfault', link: ''}
   ]
 
-  const getLists = (name) => {
-    props.dispatch({type:'FETCH_HOT_LISTS', payload: {name}})
-  }
+  // const getLists = (name) => {
+  //   props.dispatch({type:'FETCH_HOT_LISTS', payload: {name}})
+  // }
 
-  useEffect(() => {
-    getLists('zhihu')
-  }, [])
+  // useEffect(() => {
+  //   getLists('zhihu')
+  // }, [])
 
   return (
     <React.Fragment>
@@ -31,9 +32,12 @@ function Home (props) {
   )
 }
 
-Home.loadData = store => {
-  return store.dispatch({type:'FETCH_HOT_LISTS', payload: {name: 'zhihu'}})
+Home.preload = (params) => {
+  return [
+    [fetchHotLists, params]
+  ];
 }
+
 
 function mapStateToProps({hot}) {
   return {

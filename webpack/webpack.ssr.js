@@ -6,20 +6,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['./src/index-server.js'],
-    store: ['./src/store/server.js'],
-    route: ['./src/routes/index.js']
+    server: path.resolve(__dirname, '../src/server.js'),
   },
   output: {
-    filename: '[name]-server.js',
-    path: path.resolve(__dirname, './server'),
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../server'),
     libraryTarget: 'umd'
   },
+  devtool: 'cheap-module-eval-source-map',
   module: {
     rules: [
       {
         test: /\.js[x]?$/,
-        include: path.resolve(__dirname, "./src"),
+        include: path.resolve(__dirname, "../src"),
         use: [
           {
             loader: 'babel-loader',
@@ -47,24 +46,13 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.(png|svg|jpg|jpeg|gif)$/,
-      //   include: path.resolve(__dirname, "./src"),
-      //   use: [
-      //     {
-      //       loader: 'url-loader',
-      //       options: { limit: 8192 }
-      //     }
-      //   ]
-      // }
     ]
   },
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, '../src'),
     }
-    // modules: [path.resolve(__dirname, './node_modules')]
   },
   plugins: [
     new CleanWebpackPlugin({

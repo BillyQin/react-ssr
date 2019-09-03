@@ -4,6 +4,10 @@ import { Provider } from 'react-redux';
 import routes from './routes'
 import creatClientStore from './store/client.js'
 
+if (typeof window === 'undefined') {
+  global.window = {}
+}
+
 const myStore = creatClientStore()
 
 const App = () => (
