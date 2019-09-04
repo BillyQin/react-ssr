@@ -31,14 +31,12 @@ function server(port) {
       let route = routes.find(r => r.path === ctx.url)
       if (route && route.preload) {
         let task = store.runSaga(waitAll([].concat(route.preload('params 555'))))
-        let t = task.toPromise().then(() => {
-          // let v = JSON.stringify(store.getState())
-        })
+        await task.done
         initialState = JSON.stringify(store.getState())
       }
       const html = appServer(ctx)
       ctx.body = template.replace('<!-- HTML_PLACEHOLDER -->', html)
-        .replace('<!-- INITIAL_STATE -->', `<script>window.__INITIAL_STATE__ = ${initialState}</script>`)
+        .replace('<!-- INITIAL_STATE -->', `<script type="text/javascript">window.__INITIAL_STATE__=${initialState}</script>`)
     }
   })
 

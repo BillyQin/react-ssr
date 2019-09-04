@@ -5,7 +5,7 @@ import saga from '@/sagas'
 
 export default () => {
   const sagaMiddleware = createSagaMiddleware()
-  const initialState = window.__INITIAL_STATE__?JSON.parse(window.__INITIAL_STATE__):{}
+  const initialState = window.__INITIAL_STATE__ ? window.__INITIAL_STATE__ : {}
   const store = createStore(
     reducer,
     initialState,

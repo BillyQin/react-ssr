@@ -1,0 +1,1 @@
+* redux-saga 采用0.16.2。若用1.0.0以上需要修改sagas/waitAll.js

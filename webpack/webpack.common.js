@@ -10,7 +10,7 @@ module.exports = {
     rules: [
       {
         test: /\.js[x]?$/,
-        include: path.resolve(__dirname, "./src"),
+        include: path.resolve(__dirname, "../src"),
         use: [
           {
             loader: 'babel-loader',
@@ -62,7 +62,7 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, '../src'),
     }
   },
   plugins: [

@@ -7,19 +7,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    app: ['./src/index.js']
+    app: path.resolve(__dirname, '../src/index-client.js'),
   },
   output: {
     filename: '[name].[contenthash].js',
-    // publicPath: "/",
-    path: path.resolve(__dirname, './dist/static'),
+    path: path.resolve(__dirname, '../dist/static'),
     libraryTarget: 'umd'
   },
   module: {
     rules: [
       {
         test: /\.js[x]?$/,
-        include: path.resolve(__dirname, "./src"),
+        include: path.resolve(__dirname, "../src"),
         use: [
           {
             loader: 'babel-loader',
@@ -63,9 +62,9 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, '../src'),
     },
-    modules: [path.resolve(__dirname, './node_modules')]
+    modules: [path.resolve(__dirname, '../node_modules')]
   },
   plugins: [
     new CleanWebpackPlugin({
