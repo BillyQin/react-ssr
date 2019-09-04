@@ -2,7 +2,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import koaStatic from 'koa-static';
 import appServer from '@/index-server';
-import jsondata from '@/../mock/products.json';
+import jsondata from '@/../mock/zhihu.json';
 import cors from 'koa-cors';
 import creatServerStore from '@/store/server';
 import routes from '@/routes';

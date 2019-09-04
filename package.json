@@ -4,6 +4,7 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "koa": "^2.7.0",
     "koa-cors": "^0.0.16",
     "koa-router": "^7.4.0",
@@ -15,6 +16,7 @@
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
     "redux-saga": "^0.16.2",
+    "superagent": "^5.1.0",
     "typescript": "^3.6.2"
   },
   "devDependencies": {
@@ -41,7 +43,7 @@
   "scripts": {
     "ssr": "webpack --config webpack/webpack.ssr.js",
     "prod": "webpack --config webpack/webpack.prod.js",
-    "build": "yarn ssr && yarn prod && node server/server.js",
+    "build": "yarn ssr && yarn prod && node main.js",
     "start": "webpack-dev-server --config webpack/webpack.dev.js"
   }
 }

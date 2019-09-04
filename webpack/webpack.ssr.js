@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../server'),
+    path: path.resolve(__dirname, '../dist'),
     libraryTarget: 'umd'
   },
   devtool: 'cheap-module-eval-source-map',

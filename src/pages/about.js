@@ -18,8 +18,8 @@ function About () {
     <div>
       <h1>This is About page</h1>
       {products.map((item,key) => (
-        <p key={item.id}>
-          <a href={item.target.link} >{key+1}. {item.target.titleArea.text}</a>
+        <p key={key}>
+          <a href={item.link} >{key+1}. {item.title}</a>
         </p>
       ))}
     </div>

@@ -4,8 +4,10 @@ function InfoLists(props) {
   const { lists=[] } = props
   return (
     <div >
-      {lists.map((list,key) => (
-        <p key={key}>{key+1}. {list.target.titleArea.text}</p>
+      {lists.map((item,key) => (
+        <p key={key}>
+          <a target="_blank" href={item.link} >{key+1}. {item.title}</a>
+        </p>
       ))}
     </div>
   )
