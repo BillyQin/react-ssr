@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-// const Config = require('../config/config');
+const Config = require('../config/config');
 const common = require('./webpack.common');
 const merge = require('webpack-merge');
 const path = require('path');
