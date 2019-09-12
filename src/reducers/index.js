@@ -3,4 +3,4 @@ import hot from './hot';
 
 export default combineReducers({
   hot,
-})
+});

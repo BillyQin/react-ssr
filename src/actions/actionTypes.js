@@ -3,7 +3,7 @@ const types = {
   FETCH_HOT_LISTS: 'FETCH_HOT_LISTS',
 
   FETCH_FAILED: 'FETCH_FAILED',
-  
-}
 
-export default types
+};
+
+export default types;

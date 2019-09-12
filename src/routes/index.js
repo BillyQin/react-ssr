@@ -21,4 +21,4 @@ export default [
     component: NotFound,
     key: 'notfound'
   }
-]
+];

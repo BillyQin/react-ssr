@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function About () {
-
-  const [products, setProducts] = useState([])
+function About() {
+  // const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   fetch('/api/products')
@@ -20,7 +19,7 @@ function About () {
       <h1>This is About page</h1>
       <h1>This is About page</h1>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;

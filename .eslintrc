@@ -23,7 +23,10 @@
     "no-alert": 0,
     "strict": 0,
     "arrow-body-style": [2, "as-needed"],
-    "no-confusing-arrow": [2, {"allowParens": true}]
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "import/prefer-default-export": 0,
+    "no-underscore-dangle": 0
   },
   "plugins": [
     "react", "import"
@@ -33,14 +36,5 @@
     "import/resolve": {
       "moduleDirectory": ["node_modules", "src"]
     }
-  },
-  "globals": {
-    "__DEVELOPMENT__": true,
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__DISABLE_SSR__": true,
-    "__DEVTOOLS__": true,
-    "socket": true,
-    "webpackIsomorphicTools": true
   }
 }
