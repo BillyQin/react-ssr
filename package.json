@@ -62,7 +62,7 @@
     ]
   },
   "husky": {
-    "hook": {
+    "hooks": {
       "pre-commit": "lint-staged"
     }
   }
