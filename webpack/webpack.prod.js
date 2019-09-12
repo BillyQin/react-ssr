@@ -1,13 +1,12 @@
 const path = require('path');
-const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const merge = require('webpack-merge');
+const common = require('./webpack.common');
 
-module.exports = {
+module.exports = merge(common, {
   entry: {
-    app: path.resolve(__dirname, '../src/index-client.js'),
+    app: path.resolve(__dirname, '../src/index-client.jsx'),
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -17,27 +16,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js[x]?$/,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              plugins: [
-                'transform-decorators-legacy',
-                "syntax-dynamic-import",
-                "transform-runtime"
-              ],
-              presets: ['es2015', 'stage-0', 'react'],
-              cacheDirectory: true
-            }
-          }
-        ]
-      },
-      {
         test: /\.(css|less)$/,
         use: [
           MiniCssExtractPlugin.loader,
+          // 'style-loader',
           'css-loader',
           {
             loader: 'less-loader',
@@ -47,42 +29,17 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          {
-            loader: 'url-loader',
-            options: { limit: 8192 }
-          }
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf|mp4)$/,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          'file-loader'
-        ]
-      },
     ]
   },
-  resolve: {
-    extensions: ['.js'],
-    alias: {
-      '@': path.resolve(__dirname, '../src'),
-    },
-    modules: [path.resolve(__dirname, '../node_modules')]
-  },
   plugins: [
-    new CleanWebpackPlugin({
-      // 在文件被发送到输出目录之前再执行clean操作
-      beforeEmit: true
-    }),
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: 'index.html',
       // favicon: 'favicon.ico',
-      inject: true
+      inject: true,
+      minify: {
+        html5: true
+      }
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -92,4 +49,4 @@ module.exports = {
     })
   ],
   mode: 'production'
-};
+});

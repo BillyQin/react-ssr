@@ -10,7 +10,7 @@ import creatServerStore from '@/store/server';
 import routes from '@/routes';
 import waitAll from './sagas/waitAll';
 
-const htmlFile = path.resolve('dist/index.html');
+const htmlFile = path.resolve('./dist/index.html');
 const staticFolder = path.join('dist');
 const defaultPort = process.env.PORT || 3000;
 const excludes = ['/static', '/api'];
