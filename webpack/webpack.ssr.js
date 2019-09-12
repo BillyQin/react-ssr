@@ -46,6 +46,23 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        include: path.resolve(__dirname, "../src"),
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 8192 }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|mp4)$/,
+        include: path.resolve(__dirname, "../src"),
+        use: [
+          'file-loader'
+        ]
+      }
     ]
   },
   resolve: {

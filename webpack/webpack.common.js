@@ -51,7 +51,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf|mp4)$/,
         include: path.resolve(__dirname, "../src"),
         use: [
           'file-loader'
@@ -82,7 +82,6 @@ module.exports = {
     }),
     // new BundleAnalyzerPlugin()
     // new FriendlyErrorsWebpackPlugin(),
-
   ],
   optimization: {
     splitChunks: {
