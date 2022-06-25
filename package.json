@@ -9,7 +9,7 @@
     "koa-cors": "^0.0.16",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
